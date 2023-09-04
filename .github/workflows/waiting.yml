@@ -29,5 +29,5 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo "start waiting"
-          sleep 10
+          sleep 60
           echo "done waiting"
