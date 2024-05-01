@@ -34,7 +34,7 @@ jobs:
           echo "Build LST"
           java -jar mod.jar build .
           echo "Install recipe"
-          java -jar mod.jar config recipes jar install org.openrewrite.recipe:rewrite-core:LATEST || true
+          java -jar mod.jar config recipes jar install org.openrewrite:rewrite-core:LATEST || true
           echo "Echo log if exists"
           cat ~/.moderne/cli/recipes/*/recipes.log || true
           echo "Run recipe"
