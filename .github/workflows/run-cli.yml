@@ -34,4 +34,4 @@ jobs:
           echo "Build LST"
           java -jar mod.jar build . || true
           echo "Echo log if exists"
-          cat .moderne/build/*/recipes.log
+          cat .moderne/build/*/build.log
