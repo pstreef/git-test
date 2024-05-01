@@ -36,7 +36,7 @@ jobs:
           echo "Install recipe"
           java -jar mod.jar config recipes jar install org.openrewrite.recipe:rewrite-all:RELEASE || true
           echo "Echo log if exists"
-          ls -al .moderne
+          ls -al ~/.moderne
           cat .moderne/recipes/*/recipes.log || true
           echo "Run recipe"
           java -jar mod.jar run . --recipe=LanguageComposition
