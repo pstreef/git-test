@@ -30,13 +30,9 @@ jobs:
         run: |
           echo "Download CLI"
           mvn -q dependency:copy -Dartifact=io.moderne:moderne-cli:LATEST -DoutputDirectory=.
-          mv moderne-cli-*.jar mod.jar
-          which mod | xargs rm 2> /dev/null || true
-          unalias mod || true
-          alias mod='java -jar mod.jar'
           echo "Build LST"
-          mod build .
+          java -jar mod.jar build .
           echo "Install recipe"
-          mod config recipes jar install org.openrewrite.recipe:rewrite-all:LATEST
+          java -jar mod.jar config recipes jar install org.openrewrite.recipe:rewrite-all:LATEST
           echo "Run recipe"
-          mod run . --recipe=LanguageComposition
+          java -jar mod.jar run . --recipe=LanguageComposition
