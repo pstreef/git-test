@@ -31,8 +31,8 @@ jobs:
           echo "Download CLI"
           mvn -q dependency:copy -Dartifact=io.moderne:moderne-cli:LATEST -DoutputDirectory=.
           mv moderne-cli-*.jar mod.jar
-          which mod | xargs rm 2> /dev/null
-          unalias mod
+          which mod | xargs rm 2> /dev/null || true
+          unalias mod || true
           alias mod='java -jar mod.jar'
           echo "Build LST"
           mod build .
