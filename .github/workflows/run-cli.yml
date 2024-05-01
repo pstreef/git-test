@@ -29,11 +29,14 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo "Download CLI"
-          mvn dependency:copy -Dartifact=io.moderne:moderne-cli:LATEST -DoutputDirectory=.
+          mvn -q dependency:copy -Dartifact=io.moderne:moderne-cli:LATEST -DoutputDirectory=.
           mv moderne-cli-*.jar mod.jar
+          which mod | xargs rm 2> /dev/null
+          unalias mod
+          alias mod='java -jar mod.jar'
           echo "Build LST"
-          java -jar mod.jar build .
+          mod build .
           echo "Install recipe"
-          java -jar mod.jar config recipes jar install org.openrewrite.recipe:rewrite-all:LATEST
+          mod config recipes jar install org.openrewrite.recipe:rewrite-all:LATEST
           echo "Run recipe"
-          java -jar mod.jar run . --recipe=LanguageComposition
+          mod run . --recipe=LanguageComposition
