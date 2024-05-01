@@ -34,7 +34,7 @@ jobs:
           echo "Build LST"
           java -jar mod.jar build .
           echo "Install recipe"
-          java -jar mod.jar config recipes jar install org.openrewrite.recipe:rewrite-all:RELEASE
+          java -jar mod.jar config recipes jar install org.openrewrite.recipe:rewrite-all:RELEASE || true
           echo "Echo log if exists"
           cat recipes/*/recipes.log
           echo "Echo log if exists"
