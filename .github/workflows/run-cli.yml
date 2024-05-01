@@ -30,6 +30,7 @@ jobs:
         run: |
           echo "Download CLI"
           mvn -q dependency:copy -Dartifact=io.moderne:moderne-cli:LATEST -DoutputDirectory=.
+          mv moderne-cli-*.jar mod.jar
           echo "Build LST"
           java -jar mod.jar build .
           echo "Install recipe"
