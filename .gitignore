@@ -2,3 +2,7 @@ HELP.md
 .gradle
 
 foobar123456789
+
+# Moderne CLI
+.moderne/*
+!.moderne/context/
